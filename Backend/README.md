@@ -59,3 +59,44 @@ Logs in an existing user. Returns an authentication token along with user detail
     }
 }
 ````
+
+# /users/profile Endpoint Documentation
+
+## Endpoint
+`GET /users/profile`
+
+## Description
+Fetches the profile of the currently authenticated user. Requires a valid authorization token.
+
+## Responses
+- **200 OK**: Returns a JSON object with the user's details.
+- **401 Unauthorized**: If the token is missing or invalid.
+
+## Example Response (200 OK)
+````json
+{
+    "id": "12345",
+    "firstname": "Jane",
+    "lastname": "Doe",
+    "email": "jane.doe@example.com"
+}
+````
+
+# /users/logout Endpoint Documentation
+
+## Endpoint
+`GET /users/logout`
+
+## Description
+Logs out the authenticated user. Clears the authentication token and blacklists it.
+
+## Responses
+- **200 OK**: Logout successful with a confirmation message.
+- **401 Unauthorized**: If the token is missing or invalid.
+
+## Example Response (200 OK)
+````json
+{
+    "message": "Logged out successfully"
+}
+````
