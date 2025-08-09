@@ -99,4 +99,75 @@ Logs out the authenticated user. Clears the authentication token and blacklists 
 {
     "message": "Logged out successfully"
 }
+
+
+
+
+
+
+
+
+# /captain/register Endpoint Documentation
+
+## Endpoint
+`POST /captain/register`
+
+## Description
+Registers a new captain. On successful registration, returns an authentication token along with captain details.
+
+## Data Requirements
+- **fullname** (object):
+  - `firstname`: string (min 3 characters)
+  - `lastname`: string (min 3 characters, optional)
+- **email**: valid email string.
+- **password**: string (min 6 characters).
+- **vehicle** (object):
+  - `color`: string (min 3 characters)
+  - `plate`: string (min 3 characters)
+  - `capacity`: integer (min 1)
+  - `vehicleType`: string; allowed values: `car`, `bike`, `CNG`
+
+## Example Request Body
+````json
+{
+    "fullname": {
+        "firstname": "John",
+        "lastname": "Doe"
+    },
+    "email": "john.doe@example.com",
+    "password": "secret123",
+    "vehicle": {
+        "color": "blue",
+        "plate": "ABC123",
+        "capacity": 4,
+        "vehicleType": "car"
+    }
+}
+````
+
+## Responses
+- **201 Created**: Captain is registered. Returns a JSON object with the token and captain details.
+- **400 Bad Request**: Validation errors; returns error details.
+
+## Example Response (201 Created)
+````json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+    "captain": {
+        "id": "12345",
+        "fullname": {
+            "firstname": "John",
+            "lastname": "Doe"
+        },
+        "email": "john.doe@example.com",
+        "vehicle": {
+            "color": "blue",
+            "plate": "ABC123",
+            "capacity": 4,
+            "vehicleType": "car"
+        }
+    }
+}
+````
+
 ````
