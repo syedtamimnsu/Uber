@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import CaptainHome from "./pages/CaptainHome"
 import CaptainLogin from "./pages/CaptainLogin"
+import CaptainProtectWrapper from "./pages/CaptainProtectWrapper"
 import CaptainSignup from "./pages/CaptainSignup"
 import Home from "./pages/Home"
 import Start from "./pages/Start"
@@ -31,7 +32,11 @@ const App = () => {
           <UserLogout />
         </UserProtectWrapper>} />
 
-        <Route path="/captain-home" element={<CaptainHome />} />
+        <Route path="/captain-home" element={
+          <CaptainProtectWrapper>
+            <CaptainHome />
+          </CaptainProtectWrapper>
+        } />
       </Routes>
       
     </div>
