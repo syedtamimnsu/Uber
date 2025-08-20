@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom"
+import CaptainHome from "./pages/CaptainHome"
 import CaptainLogin from "./pages/CaptainLogin"
 import CaptainSignup from "./pages/CaptainSignup"
 import Home from "./pages/Home"
@@ -29,6 +30,8 @@ const App = () => {
         <Route path="/users/logout" element={<UserProtectWrapper>
           <UserLogout />
         </UserProtectWrapper>} />
+
+        <Route path="/captain-home" element={<CaptainHome />} />
       </Routes>
       
     </div>
