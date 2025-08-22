@@ -99,7 +99,7 @@ return (
                         <option value="" disabled>Select vehicle type</option>
                         <option value="car">Car</option>
                         <option value="bike">Bike</option>
-                        <option value="truck">Truck</option>
+                        <option value="truck">CNG</option>
                     </select>
 
                     <button className="bg-[#111] text-white font-semibold mb-3 rounded px-4 py-2  w-full text-lg placeholder:text-base cursor-pointer">Captain Register</button>
